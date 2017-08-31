@@ -1,24 +1,41 @@
-# README
+# Fantasy Foosball
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A21 Technical Exercise
+Candidate: Tan Bui
+Start date: Sep 1st - Total hours: 1
+(Heroku link)[https://fantasy-foosball-a21.herokuapp.com/]
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+## Required features
 
-* Configuration
+- [ ] Create and manage users
+- [ ] Create teams (1 or 2 players in a team)
+- [ ] Create and manage games between teams (Score and Winner/Loser)
+- [ ] Show Teams ranking based on winning percentage
 
-* Database creation
+### User:
 
-* Database initialization
+- First and Last name
 
-* How to run the test suite
+### Team:
 
-* Services (job queues, cache servers, search engines, etc.)
+- Name
+- Has 1 or 2 players and play one match together
 
-* Deployment instructions
+### Game:
 
-* ...
+- Has a score from 0-10
+
+###Match:
+
+- Has one winning team
+- Consist of 2-3 games (one team wins once they win 2 games)
+
+### Other:
+- Unit Tests
+- Design is not the most important, but bonus points for a usable interface
+
+
+## Optional features
+
