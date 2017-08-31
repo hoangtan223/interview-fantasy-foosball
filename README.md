@@ -1,9 +1,12 @@
 # Fantasy Foosball
 
 A21 Technical Exercise
+
 Candidate: Tan Bui
+
 Start date: Sep 1st - Total hours: 1
-(Heroku link)[https://fantasy-foosball-a21.herokuapp.com/]
+
+[Heroku link](https://fantasy-foosball-a21.herokuapp.com/)
 
 
 
@@ -27,7 +30,7 @@ Start date: Sep 1st - Total hours: 1
 
 - Has a score from 0-10
 
-###Match:
+### Match:
 
 - Has one winning team
 - Consist of 2-3 games (one team wins once they win 2 games)
