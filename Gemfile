@@ -40,6 +40,9 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'guard-rspec'
   gem 'rails-controller-testing'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
+  gem 'faker'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :development do
@@ -49,6 +52,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'guard'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
