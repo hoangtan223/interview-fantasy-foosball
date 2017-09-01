@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <div class="image is-32x32" style="margin: 10px">
+        <%= image_tag "foosball2.png", alt: "foosball", style: "border-radius: 3px" %>
+      </div>
+    </a>
+    <div class="navbar-item">
+        <div class="field">
+          <div class="control has-icons-right">
+            <input class="input search-bar" type="text" placeholder="Search users" style="height:2em;width:30rem">
+            <span class="icon is-right is-small">
+              <%= fa_icon("search") %>
+            </span>
+          </div>
+        </div>
+    </div>
+
+    <div class="navbar-burger burger" data-target="navMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="navbar-menu" id="navMenu">
+    <div class="navbar-start">
+    </div>
+    <div class="navbar-end">
+
+    </div>
+  </div>
+</nav>

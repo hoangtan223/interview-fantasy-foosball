@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <%= render 'layouts/navbar' %>
+    <%= yield(:content_outside_container) if content_for?(:content_outside_container) %>
     <div class="container" style="margin-top: 20px">
       <%= yield %>
     </div>

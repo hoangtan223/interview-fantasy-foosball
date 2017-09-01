@@ -1,2 +1,14 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% content_for :content_outside_container do %>
+  <section class="hero is-medium is-primary is-bold is-large">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          Fantasy Foosball
+        </h1>
+        <h2 class="subtitle">
+          Better way to manage your football matches
+        </h2>
+      </div>
+    </div>
+  </section>
+<% end %>
