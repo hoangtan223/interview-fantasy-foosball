@@ -26,7 +26,16 @@
     <div class="navbar-start">
     </div>
     <div class="navbar-end">
-
+      <% if current_user %>
+        <%= link_to "/", class: "navbar-item" do %>
+          <%= image_tag current_user.image_url_or_default %>
+          &nbsp;<%= current_user.full_name %>
+        <% end %>
+        <%= link_to icon("sign-out"), sign_out_path, class: "navbar-item" %>
+      <% else %>
+        <%= link_to "Sign Up", sign_up_path, class: "navbar-item" %>
+        <%= link_to "Sign In", sign_in_path, class: "navbar-item" %>
+      <% end %>
     </div>
   </div>
 </nav>
