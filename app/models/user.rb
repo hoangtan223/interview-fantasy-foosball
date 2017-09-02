@@ -14,4 +14,8 @@ class User < ApplicationRecord
   def image_url_or_default
     "https://www.shareicon.net/data/512x512/2016/06/30/788946_people_512x512.png"
   end
+
+  def available_teams
+    teams.joins(:team_members).group('teams.id').having('count(team_members.team_id) < 2')
+  end
 end
