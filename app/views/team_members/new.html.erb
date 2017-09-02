@@ -12,7 +12,9 @@
           </div>
           <div class="field">
           <label class="label">Team</label>
-            <%= f.collection_select :team_id, @teams, :id, :name, class: 'select' %>
+            <div class="select">
+              <%= f.collection_select :team_id, @teams, :id, :name, class: 'select' %>
+            </div>
           </div>
           <div class="field">
             <%= submit_tag "Create", class: "button is-primary" %>

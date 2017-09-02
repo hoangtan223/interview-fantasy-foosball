@@ -3,5 +3,13 @@
   <td> <%= match.home_team.name %></td>
   <td>1 - 1</td>
   <td><%= match.away_team.name %></td>
-  <td><%= match.status %></td>
+  <td>
+  <% if match.status == 'invited' %>
+    <% if current_user.is_home_team?(match) %>
+      Waiting
+    <% else%>
+      <%= link_to 'Start', start_match_path(match), class: 'button' %>
+    <% end%>
+  <% end %>
+  </td>
 </tr>

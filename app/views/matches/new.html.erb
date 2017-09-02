@@ -1,2 +1,29 @@
-<h1>Matches#new</h1>
-<p>Find me in app/views/matches/new.html.erb</p>
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-header-title">Invite new member</h1>
+      </div>
+      <div class="card-content">
+        <%= form_for @match do |f| %>
+          <div class="field">
+          <label class="label">Your Team</label>
+            <div class="select">
+              <%= f.collection_select :home_team_id, @user_teams, :id, :name, class: 'select' %>
+            </div>
+          </div>
+          <div class="field">
+          <label class="label">Team</label>
+            <div class="select">
+              <%= f.collection_select :away_team_id, @opponent_teams, :id, :name, class: 'select' %>
+            </div>
+          </div>
+          <div class="field">
+            <%= submit_tag "Create", class: "button is-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>

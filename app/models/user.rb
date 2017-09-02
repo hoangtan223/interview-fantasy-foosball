@@ -23,8 +23,27 @@ class User < ApplicationRecord
     team_members.where(status: 'invited')
   end
 
-  def all_matches
+  def all_matches_with_status(status)
     team_ids = teams.map(&:id)
-    Match.where('home_team_id IN (?) OR away_team_id IN (?)', team_ids, team_ids)
+    matches = nil
+    case status
+    when 'invited'
+      matches = Match.invited_matches
+    when 'started'
+      matches = Match.started_matches
+    when 'finished'
+      matches = Match.finished_matches
+    else
+      matches = Match.all
+    end
+    matches.where('home_team_id IN (?) OR away_team_id IN (?)', team_ids, team_ids)
+  end
+
+  def is_home_team?(match)
+    teams.map(&:id).include? match.home_team_id
+  end
+
+  def is_away_team?(match)
+    teams.map(&:id).include? match.away_team_id
   end
 end

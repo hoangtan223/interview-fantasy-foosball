@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   get 'update_invitation' => 'team_members#update', as: 'update_invitation'
 
   resources :matches
+  get 'start_match/:id' => 'matches#start_match', as: 'start_match'
 end
