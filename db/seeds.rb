@@ -13,4 +13,5 @@ if User.count == 0
     User.create!(first_name: first_name, last_name: last_name, email: Faker::Internet.free_email("#{first_name}_#{last_name}"),
                  password: '123123', password_confirmation: '123123')
   end
+  User.create(first_name: 'tan', last_name: 'bui', email: 'tan@gmail.com', password: '123123', password_confirmation: '123123')
 end

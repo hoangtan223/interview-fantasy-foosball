@@ -2,6 +2,10 @@ class User < ApplicationRecord
   has_secure_password
   validates_uniqueness_of :email
   validates_presence_of :email, :first_name, :last_name
+  has_many :team_members, dependent: :destroy
+  has_many :teams, through: :team_members
+
+  scope :all_except, ->(user) { where.not(id: user) }
 
   def full_name
     "#{first_name} #{last_name}"

@@ -27,10 +27,26 @@
     </div>
     <div class="navbar-end">
       <% if current_user %>
-        <%= link_to "/", class: "navbar-item" do %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <%= link_to "/", class: "navbar-item" do %>
           <%= image_tag current_user.image_url_or_default %>
           &nbsp;<%= current_user.full_name %>
         <% end %>
+
+          <div class="navbar-dropdown">
+            <%= link_to 'Players', users_path, class: 'navbar-item' %>
+            <a class="navbar-item">
+              Elements
+            </a>
+            <a class="navbar-item">
+              Components
+            </a>
+            <hr class="navbar-divider">
+            <div class="navbar-item">
+              Version 0.5.1
+            </div>
+          </div>
+        </div>
         <%= link_to icon("sign-out"), sign_out_path, class: "navbar-item" %>
       <% else %>
         <%= link_to "Sign Up", sign_up_path, class: "navbar-item" %>
