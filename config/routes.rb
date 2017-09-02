@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   get 'invite_user/:id' => 'team_members#new', as: 'invite_user'
   get 'invitations' => 'team_members#invitations'
   get 'update_invitation' => 'team_members#update', as: 'update_invitation'
+
+  resources :matches
 end

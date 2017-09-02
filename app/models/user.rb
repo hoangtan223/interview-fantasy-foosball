@@ -22,4 +22,9 @@ class User < ApplicationRecord
   def invitations
     team_members.where(status: 'invited')
   end
+
+  def all_matches
+    team_ids = teams.map(&:id)
+    Match.where('home_team_id IN (?) OR away_team_id IN (?)', team_ids, team_ids)
+  end
 end
