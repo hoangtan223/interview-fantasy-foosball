@@ -11,5 +11,27 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UsersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:users) { create_list(:user, 5) }
+  let(:teams) { create_list(:team, 3) }
+
+  describe "#team_names" do
+    it 'return "Free Player" when user in no team' do
+      expect(helper.team_names(users.first)).to eq "Free Player"
+    end
+
+    it 'return 1 team name when user in 1 team' do
+      user = users.first
+      TeamMember.create(user: user, team: teams.first)
+
+      expect(helper.team_names(user)).to eq(teams.first.name)
+    end
+
+    it 'return multiple names when user in multiple teams' do
+      user = users.first
+      TeamMember.create(user: user, team: teams.first)
+      TeamMember.create(user: user, team: teams.last)
+
+      expect(helper.team_names(user)).to eq("#{teams.first.name}, #{teams.last.name}")
+    end
+  end
 end
