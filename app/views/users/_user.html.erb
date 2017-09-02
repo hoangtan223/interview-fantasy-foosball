@@ -1,0 +1,24 @@
+<div class="column is-one-third">
+  <div class="card">
+    <div class="card-image">
+      <figure class="image is-4by3">
+        <img src="http://bulma.io/images/placeholders/1280x960.png" alt="Image">
+        <%= image_tag user.image_url_or_default, alt: 'Image' %>
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          
+        </div>
+        <div class="media-content">
+          <p class="title is-4"><%= user.full_name %></p>
+          <p class="subtitle is-6"><%= team_names(user) %></p>
+        </div>
+      </div>
+
+      <div class="content">
+      </div>
+    </div>
+  </div>
+</div>
