@@ -1,0 +1,21 @@
+<% content_for :side_menu do %>
+  <div class="columns">
+    <div class="column is-3">
+      <aside class="menu">
+        <p class="menu-label">
+          Team management
+        </p>
+        <ul class="menu-list">
+          <li><%= link_to icon("comment-o", "All Teams"), teams_path, class: "#{'is-active' if current_page?(teams_path)}" %></li>
+          <li><%= link_to icon("inbox", "My Teams"), my_teams_path, class: "#{'is-active' if current_page?(my_teams_path)}" %></li>
+          <li><%= link_to icon("paper-plane-o", "Create new team"), new_team_path, class: "#{'is-active' if current_page?(new_team_path)}" %></li>
+        </ul>
+      </aside>
+    </div>
+    <div class="column">
+      <%= yield %>
+    </div>
+  </div>
+<% end %>
+
+<%= render file: "layouts/application" %>

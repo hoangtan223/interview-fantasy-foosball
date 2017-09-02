@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'sign_out' => 'sessions#destroy'
 
   resources :teams
+  get 'my_teams' => 'teams#my_teams'
 end
