@@ -10,5 +10,9 @@ Rails.application.routes.draw do
 
   resources :teams
   get 'my_teams' => 'teams#my_teams'
+
+  resources :team_members, only: [:create]
   get 'invite_user/:id' => 'team_members#new', as: 'invite_user'
+  get 'invitations' => 'team_members#invitations'
+  get 'update_invitation' => 'team_members#update', as: 'update_invitation'
 end

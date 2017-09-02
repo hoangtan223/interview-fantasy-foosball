@@ -27,4 +27,14 @@ RSpec.describe User, type: :model do
       expect(users.first.available_teams).to match_array [new_team]
     end
   end
+
+  describe "#invitations" do
+    it "return team_members record which status is invited" do
+      invitation = team.team_members.create(user: users[1], status: 'invited')
+      team.team_members.create(user: users[0], status: 'team_owner')
+
+      expect(users[1].invitations).to match_array [invitation]
+
+    end
+  end
 end

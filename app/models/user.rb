@@ -18,4 +18,8 @@ class User < ApplicationRecord
   def available_teams
     teams.joins(:team_members).group('teams.id').having('count(team_members.team_id) < 2')
   end
+
+  def invitations
+    team_members.where(status: 'invited')
+  end
 end

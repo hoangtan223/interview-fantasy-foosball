@@ -1,0 +1,25 @@
+<div class="columns">
+  <div class="column is-half is-offset-one-quarter">
+    <div class="card">
+      <div class="card-header">
+        <h1 class="card-header-title">Invite new member</h1>
+      </div>
+      <div class="card-content">
+        <%= form_for @team_member do |f| %>
+          <div class="field">
+          <label class="label">Player: <%= @user.full_name %></label>
+          <%= f.hidden_field :user_id, value: @user.id%>
+          </div>
+          <div class="field">
+          <label class="label">Team</label>
+            <%= f.collection_select :team_id, @teams, :id, :name, class: 'select' %>
+          </div>
+          <div class="field">
+            <%= submit_tag "Create", class: "button is-primary" %>
+          </div>
+        <% end %>
+      </div>
+      <div class="card-footer">
+      </div>
+    </div>
+  </div>

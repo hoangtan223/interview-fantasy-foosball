@@ -1,0 +1,24 @@
+<% if @invitations.count > 0 %>
+  <% @invitations.each do |invitation| %>
+    <article class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img src="http://bulma.io/images/placeholders/128x128.png">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <small>Invitation from </small> <strong><%= invitation.team.name %></strong>  <small><%= time_ago_in_words invitation.created_at %></small>
+          </p>
+        </div>
+      </div>
+      <div class="media-right">
+        <%= link_to "Accept", update_invitation_path(id: invitation.id, status: 'accept'), class: 'button is-success' %>
+        <%= link_to "Decline", update_invitation_path(id: invitation.id, status: 'decline'), class: 'button is-danger' %>
+      </div>
+    </article>
+  <% end%>
+<% else %>
+  <%= "no invitation "%>
+<% end %>
