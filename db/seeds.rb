@@ -24,7 +24,7 @@ if User.count == 0
     last_name = Faker::Name.last_name
     user = User.create!(first_name: first_name, last_name: last_name, email: Faker::Internet.free_email("#{first_name}_#{last_name}"),
                  password: '123123', password_confirmation: '123123')
-    user.team_members.create!(team: two_member_team[i/2])
+    user.team_members.create!(team: two_member_team[i/2], status: i%2 == 0 ? 'team_owner' : 'accepted')
   end
 
   10.times do |i|
@@ -33,7 +33,7 @@ if User.count == 0
     user = User.create!(first_name: first_name, last_name: last_name, email: Faker::Internet.free_email("#{first_name}_#{last_name}"),
                  password: '123123', password_confirmation: '123123')
     if i < 5
-      user.team_members.create!(team: one_member_team[i])
+      user.team_members.create!(team: one_member_team[i], status: 'team_owner')
     end
   end
 

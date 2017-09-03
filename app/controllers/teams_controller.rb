@@ -1,10 +1,14 @@
 class TeamsController < ApplicationController
   before_action :require_login
+  before_action :get_notification_count, except: [:create]
+
+  def show
+    @team = Team.find(params[:id])
+  end
 
   def index
     @page_title = "All Teams"
     @teams = Team.all.sort_by(&:win_rate).reverse
-
   end
 
   def new
@@ -31,5 +35,9 @@ class TeamsController < ApplicationController
   private
   def team_params
     params.require(:team).permit(:name, :image_url)
+  end
+
+  def get_notification_count
+    @invitation_count = current_user.invitations.count
   end
 end

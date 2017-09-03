@@ -1,7 +1,7 @@
 <tr>
   <td><%= rank %></td>
   <td><%= team.id %></td>
-  <td> <%= team.name %></td>
+  <td><%= link_to team.name, team_path(team) %></td>
   <td><%= team.all_completed_match.count %></td>
   <td><%= team.win_matches.count %></td>
   <td><%= team.all_completed_match.count - team.win_matches.count %></td>

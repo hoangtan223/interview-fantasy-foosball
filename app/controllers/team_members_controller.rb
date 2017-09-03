@@ -5,6 +5,7 @@ class TeamMembersController < ApplicationController
   def invitations
     @page_title = "My invitations"
     @invitations = current_user.invitations
+    @invitation_count = @invitations.count
   end
 
   def new

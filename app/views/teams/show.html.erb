@@ -1,0 +1,17 @@
+<section class="section">
+  <div class="container">
+    <h1 class="title is-4">Team: <%= @team.name %></h1>
+    <h2 class="subtitle">
+      win: <%= @team.win_matches.count %> - Total played: <%= @team.all_completed_match.count %> - Win Rate: <%= number_to_percentage @team.win_rate, precise: 0 %>
+    </h2>
+  </div>
+</section>
+<hr>
+<section class="section">
+  <div class="container">
+    <h1 class="title is-4">Team Members:</h1>
+    <div class="columns">
+    <%= render partial: 'member', collection: @team.users, as: 'user' %>
+    </div>
+  </div>
+</section>
