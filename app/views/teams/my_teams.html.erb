@@ -26,6 +26,8 @@
       <% @teams.each_with_index do |team, i| %>
         <%= render 'team_row', team: team, rank: i + 1 %>
       <% end%>
+      <% else %>
+      <td>You have no team yet!</td>
     <% end %>
   </tbody>
 </table>

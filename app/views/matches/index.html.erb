@@ -24,6 +24,8 @@
       <% @matches.each do |match| %>
         <%= render 'match_row', match: match %>
       <% end%>
+    <% else %>
+      <td>No match available</td>
     <% end %>
   </tbody>
 </table>

@@ -10,7 +10,7 @@ class MatchesController < ApplicationController
   def new
     @match = Match.new
     @user_teams = current_user.teams
-    @opponent_teams = Team.except(@user_teams)
+    @opponent_teams = Team.all_except(@user_teams.map(&:id))
   end
 
   def create
