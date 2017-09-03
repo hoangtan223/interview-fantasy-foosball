@@ -3,6 +3,7 @@ class TeamMembersController < ApplicationController
   before_action :set_team_member, only: [:update]
 
   def invitations
+    @page_title = "My invitations"
     @invitations = current_user.invitations
   end
 
@@ -10,6 +11,9 @@ class TeamMembersController < ApplicationController
     @team_member = TeamMember.new
     @user = User.find(params[:id])
     @teams = current_user.available_teams
+    unless @team.present?
+      redirect_to new_team_path, flash: {notice: "You have no available team, please create one first!"}
+    end
   end
 
   def create

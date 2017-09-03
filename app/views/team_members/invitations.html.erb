@@ -20,5 +20,13 @@
     </article>
   <% end%>
 <% else %>
-  <%= "no invitation "%>
+  <article class="message is-primary">
+  <div class="message-header">
+    <p>No invitations</p>
+    <button class="delete" aria-label="delete"></button>
+  </div>
+  <div class="message-body">
+    Currently there is no invitation for you.
+  </div>
+</article>
 <% end %>

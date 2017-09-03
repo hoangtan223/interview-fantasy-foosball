@@ -2,11 +2,13 @@ class TeamsController < ApplicationController
   before_action :require_login
 
   def index
+    @page_title = "All Teams"
     @teams = Team.all.sort_by(&:win_rate).reverse
 
   end
 
   def new
+    @page_title = "New Team"
     @team = Team.new
   end
 
@@ -22,6 +24,7 @@ class TeamsController < ApplicationController
   end
 
   def my_teams
+    @page_title = "My Teams"
     @teams = current_user.teams.sort_by(&:win_rate).reverse
   end
 

@@ -3,7 +3,7 @@
     <div class="column is-3">
       <aside class="menu">
         <p class="menu-label">
-          Team management
+          Match management
         </p>
         <ul class="menu-list">
           <li><%= link_to icon("comment-o", "On going matches"), matches_path(status: 'started'), class: "#{'is-active' if current_page?(matches_path(status: 'started'))}" %></li>
@@ -14,6 +14,7 @@
       </aside>
     </div>
     <div class="column">
+      <p class="menu-label"><%= params[:status] %> Match</p>
       <%= yield %>
     </div>
   </div>
