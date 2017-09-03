@@ -2,7 +2,8 @@ class TeamsController < ApplicationController
   before_action :require_login
 
   def index
-    @teams = Team.all
+    @teams = Team.all.sort_by(&:win_rate).reverse
+
   end
 
   def new
@@ -21,7 +22,7 @@ class TeamsController < ApplicationController
   end
 
   def my_teams
-    @teams = current_user.teams
+    @teams = current_user.teams.sort_by(&:win_rate).reverse
   end
 
   private

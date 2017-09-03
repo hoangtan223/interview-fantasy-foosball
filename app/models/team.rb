@@ -10,4 +10,20 @@ class Team < ApplicationRecord
   def all_matches
     home_matches.or(away_matches)
   end
+
+  def all_completed_match
+    all_matches.where(status: 'finished')
+  end
+
+  def win_matches
+    home_matches.where(is_home_win: true).or(away_matches.where(is_home_win: false))
+  end
+
+  def win_rate
+    if all_completed_match.count == 0
+      0
+    else
+      (win_matches.count.to_f / all_completed_match.count) * 100
+    end
+  end
 end
