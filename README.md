@@ -8,7 +8,7 @@ Start date: Sep 1st - Total hours: 15h
 
 [Heroku link](https://fantasy-foosball-a21.herokuapp.com/)
 
-
+account user: eugene_price@hotmail.com - password: 123123
 
 ## Required features
 
