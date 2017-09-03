@@ -2,13 +2,17 @@
 
 A21 Technical Exercise
 
-Candidate: Tan Bui
+**Candidate:** Tan Bui - hoangtan223@gmail.com
 
-Start date: Sep 1st - Total hours: 15h
+**Start date:** Sep 1st - Total hours: 15h
 
 [Heroku link](https://fantasy-foosball-a21.herokuapp.com/)
 
-account user: eugene_price@hotmail.com - password: 123123
+**Account user:** eugene_price@hotmail.com - password: 123123
+
+**Feature:** Implement required features with very basic UI from Bulma. Not happy with ranking part yet due to limited time
+
+**Unit Testing status:** I don't have enough time to write test for matches and games, just cover some area in users, team and team members flow.
 
 ## Required features
 
