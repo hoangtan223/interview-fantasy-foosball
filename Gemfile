@@ -41,7 +41,6 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', branch: 'rails-5'
-  gem 'faker'
   gem 'factory_girl_rails', '~> 4.0'
 end
 
@@ -60,3 +59,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "bulma-rails", github: "harley/bulma-rails"
 gem "font-awesome-rails"
 gem "jquery-rails"
+gem 'faker'
