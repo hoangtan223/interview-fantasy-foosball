@@ -1,15 +1,18 @@
 <tr>
   <th><%= match.id %></th>
   <td> <%= match.home_team.name %></td>
-  <td>1 - 1</td>
+  <td><%= get_match_point(match) %></td>
   <td><%= match.away_team.name %></td>
+  <td><%= match.created_at %></td>
   <td>
   <% if match.status == 'invited' %>
     <% if current_user.is_home_team?(match) %>
       Waiting
     <% else%>
-      <%= link_to 'Start', start_match_path(match), class: 'button' %>
+      <%= link_to 'Start', start_match_path(match), class: 'button is-success' %>
     <% end%>
+  <% else %>
+    <%= link_to "detail", match_path(match), class: 'button is-success'%>
   <% end %>
   </td>
 </tr>

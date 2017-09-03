@@ -1,6 +1,10 @@
 class MatchesController < ApplicationController
+  before_action :set_match, only: [:show, :start_match]
   def index
     @matches = current_user.all_matches_with_status(params[:status])
+  end
+
+  def show
   end
 
   def new
@@ -30,7 +34,6 @@ class MatchesController < ApplicationController
   end
 
   def start_match
-    @match = Match.find(params[:id])
     if current_user.is_away_team?(@match)
       if @match.update(status: 'started')
         redirect_to matches_path(status: 'started'), flash: {success: "Match #{@match.id} started"}
@@ -47,5 +50,9 @@ class MatchesController < ApplicationController
   private
   def match_params
     params.require(:match).permit(:home_team_id, :away_team_id)
+  end
+
+  def set_match
+    @match = Match.find(params[:id])
   end
 end

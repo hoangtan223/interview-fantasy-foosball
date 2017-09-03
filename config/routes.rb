@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'games/create'
+
   root 'home#index'
 
   resources :users
@@ -18,4 +20,6 @@ Rails.application.routes.draw do
 
   resources :matches
   get 'start_match/:id' => 'matches#start_match', as: 'start_match'
+
+  resources :games
 end

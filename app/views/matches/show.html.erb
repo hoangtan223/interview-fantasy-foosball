@@ -1,0 +1,66 @@
+<div class="tile is-ancestor">
+  <div class="tile is-parent has-text-centered">
+      <article class="tile is-child notification is-primary">
+        <p class="title is-5"><%= @match.home_team.name %></p>
+        <p class="subtitle">Home team</p>
+      </article>
+  </div>
+  <div class="tile is-parent has-text-centered">
+      <article class="tile is-child notification is-danger">
+        <p class="title is-5">result</p>
+        <p class="subtitle"><%= get_match_point(@match) %></p>
+      </article>
+  </div>
+  <div class="tile is-parent has-text-centered">
+      <article class="tile is-child notification is-primary">
+        <p class="title is-5"><%= @match.away_team.name %></p>
+        <p class="subtitle">Away team</p>
+      </article>
+  </div>
+</div>
+
+<div class="columns">
+    <div class="column is-half is-offset-one-quarter">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="card-header-title">Game Result</h1>
+        </div>
+        <% if @match.games.count > 0 %>
+        <div class="card-content has-text-centered">
+          <% @match.games.each_with_index do |game, i| %>
+          <div><%= "Game #{i + 1}:        #{game.home_point} - #{game.away_point}"%></div>
+          <% end %>
+        </div>
+        <% end %>
+        <% unless @match.is_finish? %>
+          <div class="card-content">
+            <%= form_for Game.new do |f| %>
+              <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                      <label class="label">Result</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <%= f.text_field :home_point, placeholder: "Home point...", class: "input" %>
+                    </div>
+                    <div class="field">
+                      <%= f.text_field :away_point, placeholder: "Home point...", class: "input" %>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="field is-grouped is-grouped-centered">
+                <%= f.hidden_field :match_id, value: @match.id %>
+                <%= submit_tag "Submit", class: "button is-primary" %>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="card-content has-text-centered">
+            <div><%= "#{@match.winner.name} is the winner!"%></div>
+          </div>
+        <% end %>
+        <div class="card-footer">
+        </div>
+      </div>
+    </div>
