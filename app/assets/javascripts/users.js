@@ -1,2 +1,16 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(document).on('turbolinks:load', function() {
+  var file = document.getElementById("file");
+  file.onchange = function(){
+      if(file.files.length > 0)
+      {
+
+        document.getElementById('filename').innerHTML = file.files[0].name;
+
+      }
+  };
+
+  $('.button').on('click', function(e) {
+    $(e.target).addClass('is-loading');
+  })
+});
+

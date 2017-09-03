@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates_presence_of :email, :first_name, :last_name
   has_many :team_members, dependent: :destroy
   has_many :teams, through: :team_members
+  mount_uploader :image_url, AvatarUploader
 
   scope :all_except, ->(user) { where.not(id: user) }
 
@@ -12,7 +13,7 @@ class User < ApplicationRecord
   end
 
   def image_url_or_default
-    "https://www.shareicon.net/data/512x512/2016/06/30/788946_people_512x512.png"
+    self.image_url.present? ? image_url : "https://www.shareicon.net/data/512x512/2016/06/30/788946_people_512x512.png"
   end
 
   def available_teams
