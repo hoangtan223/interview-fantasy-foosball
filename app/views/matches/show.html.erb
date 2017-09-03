@@ -2,6 +2,9 @@
   <div class="tile is-parent has-text-centered">
       <article class="tile is-child notification is-primary">
         <p class="title is-5"><%= @match.home_team.name %></p>
+        <figure class="image is-128x128">
+            <%= image_tag @match.home_team.image_url_or_default, style: 'height: 100%;' %>
+          </figure>
         <p class="subtitle">Home team</p>
       </article>
   </div>
@@ -14,6 +17,9 @@
   <div class="tile is-parent has-text-centered">
       <article class="tile is-child notification is-primary">
         <p class="title is-5"><%= @match.away_team.name %></p>
+        <figure class="image is-128x128">
+            <%= image_tag @match.home_team.image_url_or_default, style: 'height: 100%;' %>
+          </figure>
         <p class="subtitle">Away team</p>
       </article>
   </div>

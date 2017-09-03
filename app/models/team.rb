@@ -29,4 +29,8 @@ class Team < ApplicationRecord
       (win_matches.count.to_f / all_completed_match.count) * 100
     end
   end
+
+  def image_url_or_default
+    self.image_url.present? ? image_url : 'https://i.pinimg.com/originals/fb/63/a7/fb63a70f631c33e0b457c82db41e0f33.jpg'
+  end
 end
