@@ -14,7 +14,7 @@ class Match < ApplicationRecord
   end
 
   def is_finish?
-    games.count == 3 || home_win_count == 2 || home_win_count == 0
+    games.count > 1 && (home_win_count == 2 || home_win_count == 0)
   end
 
   def winner

@@ -38,4 +38,18 @@ if User.count == 0
   end
 
   User.create(first_name: 'tan', last_name: 'bui', email: 'tan@gmail.com', password: '123123', password_confirmation: '123123')
+
+  team_ids = Team.all.map(&:id)
+
+  10.times do |i|
+    match = Match.create(home_team_id: team_ids[i], away_team_id: (team_ids - [team_ids[i]]).sample )
+
+    3.times do
+      if match.status != 'finished'
+        home_point = (0..10).to_a.sample
+        away_point = ((0..10).to_a - [home_point]).sample
+        match.games.create!(home_point: home_point, away_point: away_point)
+      end
+    end
+  end
 end

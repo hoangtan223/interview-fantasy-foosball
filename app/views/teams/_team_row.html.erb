@@ -2,7 +2,7 @@
   <th><%= rank %></th>
   <th><%= team.id %></th>
   <td> <%= team.name %></td>
-  <td><%= team.all_matches.count %></td>
+  <td><%= team.all_completed_match.count %></td>
   <td><%= team.win_matches.count %></td>
   <td><%= team.all_matches.count - team.win_matches.count %></td>
   <td><%= team.win_rate %></td>
